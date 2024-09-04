@@ -2,7 +2,7 @@ import { Text, View } from "react-native";
 
 export default function Index() {
   return (
-    <View>
+    <View className="bg-blue-700 w-full h-[85vh]">
       <Text
         style={{
           fontSize: 22,
