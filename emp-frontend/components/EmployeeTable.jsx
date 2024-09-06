@@ -31,7 +31,7 @@ const EmployeeTable = ({ employees, onDelete }) => {
     <FlatList
       data={employees}
       renderItem={renderItem}
-      keyExtractor={(item) => item.id}
+      keyExtractor={(item) => item._id}
       className="p-4"
     />
   );
