@@ -1,12 +1,12 @@
 import { View, Text } from "react-native";
 import React from "react";
 
-const EditPage = () => {
+const App = () => {
   return (
     <View>
-      <Text>EditPage</Text>
+      <Text>App</Text>
     </View>
   );
 };
 
-export default EditPage;
+export default App;
