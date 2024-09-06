@@ -1,4 +1,5 @@
 import React from "react";
+import "./globals.css";
 import { View, Text, TouchableOpacity } from "react-native";
 import { useRouter } from "expo-router";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
