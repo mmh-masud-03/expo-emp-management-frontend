@@ -18,7 +18,7 @@ const Header = ({ title, showBackButton = false, showAddButton = false }) => {
       </View>
       {showAddButton && (
         <TouchableOpacity onPress={() => router.push("/add-employee")}>
-          <Ionicons name="person-add" size={24} color="white" />
+          <Ionicons name="person-add" size={24} color="#ffffff" />
         </TouchableOpacity>
       )}
     </View>

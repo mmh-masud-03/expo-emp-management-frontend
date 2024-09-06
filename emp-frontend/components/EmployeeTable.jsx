@@ -32,7 +32,7 @@ const EmployeeTable = ({ employees, onDelete }) => {
       data={employees}
       renderItem={renderItem}
       keyExtractor={(item) => item._id}
-      className="p-4"
+      className="p-4 bg-slate-100"
     />
   );
 };
