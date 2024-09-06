@@ -16,7 +16,8 @@ const EmployeesPage = () => {
 
   const loadEmployees = async () => {
     const data = await fetchEmployees();
-    setEmployees(data);
+    const employees = data?.employees;
+    setEmployees(employees || []);
   };
 
   const handleDelete = async (id) => {
