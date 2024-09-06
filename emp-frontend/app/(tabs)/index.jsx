@@ -1,10 +1,10 @@
 import React from "react";
-import "./globals.css";
+import "../globals.css";
 import { View, Text, TouchableOpacity } from "react-native";
 import { useRouter } from "expo-router";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 
 const WelcomeScreen = () => {
   const router = useRouter();

@@ -30,10 +30,12 @@ const EmployeesPage = () => {
 
   return (
     <View className="flex-1">
-      <Header title="Employees" showAddButton />
+      <Header title="Employees" showAddButton showBackButton />
       <View className="flex-1">
         {loading ? (
-          <ActivityIndicator size="large" className="mt-4" /> // Loader component
+          <View className="flex-1 justify-center items-center">
+            <ActivityIndicator size="large" color="#0000ff" />
+          </View>
         ) : employees.length > 0 ? (
           <EmployeeTable employees={employees} onDelete={handleDelete} />
         ) : (
