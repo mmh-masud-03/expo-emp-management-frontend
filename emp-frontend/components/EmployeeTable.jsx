@@ -38,7 +38,7 @@ const EmployeeTable = ({ employees, onDelete }) => {
       </View>
       <View className="flex-row gap-2">
         <TouchableOpacity
-          onPress={() => router.push(`/edit/${item._id}`)}
+          onPress={() => router.replace(`/edit/${item._id}`)}
           className="mr-2"
         >
           <AntDesign name="edit" size={24} color="black" />

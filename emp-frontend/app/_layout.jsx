@@ -1,4 +1,3 @@
-// app/layout.js or app/_layout.js
 import { Stack } from "expo-router";
 import { SafeAreaView } from "react-native";
 import "./globals.css"; // Your global styles
@@ -12,7 +11,7 @@ export default function RootLayout() {
         }}
       >
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        {/* You can add other non-tab screens here */}
+        <Stack.Screen name="edit/[id]" options={{ headerShown: false }} />
       </Stack>
     </SafeAreaView>
   );

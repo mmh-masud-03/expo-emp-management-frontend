@@ -16,7 +16,7 @@ const AddEmployeePage = () => {
 
   return (
     <View className="flex-1">
-      <Header title="Add Employee" showBackButton />
+      <Header title="Add Employee" />
       <View className="flex-1">
         <EmployeeForm onSubmit={handleSubmit} />
       </View>
