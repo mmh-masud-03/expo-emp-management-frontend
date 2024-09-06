@@ -43,8 +43,8 @@ const EmployeeForm = ({ onSubmit, initialValues = {} }) => {
       case "contact":
         if (!value) {
           errorMsg = "Contact is required.";
-        } else if (!/^\d{10}$/.test(value)) {
-          errorMsg = "Contact must be a 10-digit number.";
+        } else if (!/^\d{11}$/.test(value)) {
+          errorMsg = "Contact must be a 11-digit number.";
         }
         break;
       case "email":
