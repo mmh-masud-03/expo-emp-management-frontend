@@ -1,7 +1,8 @@
 import React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import { useRouter } from "expo-router";
-import FontAwesome from "@expo/vector-icons/FontAwesome";
+// import { Users } from "lucide-react-native";
+import { Users } from "@expo/vector-icons"; // Import icons from @expo/vector-icons
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
@@ -12,7 +13,7 @@ const WelcomeScreen = () => {
     <View className="flex-1">
       <Header title="Welcome" />
       <View className="flex-1 justify-center items-center p-4">
-        <FontAwesome name="users" size={24} color="black" />
+        <Users color="#3b82f6" size={64} />
         <Text className="text-2xl font-bold mt-4 mb-2">
           Employee Management System
         </Text>
