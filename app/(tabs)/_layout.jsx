@@ -13,16 +13,16 @@ export default function TabLayout() {
           switch (route.name) {
             case "index":
               iconName = "home";
-              return <FontAwesome name={iconName} size={28} color={color} />;
+              return <FontAwesome name={iconName} size={24} color={color} />;
             case "employees":
               iconName = "users";
-              return <FontAwesome6 name={iconName} size={28} color={color} />;
+              return <FontAwesome6 name={iconName} size={21} color={color} />;
             case "add-employee":
               iconName = "user-plus";
-              return <FontAwesome6 name={iconName} size={28} color={color} />;
+              return <FontAwesome6 name={iconName} size={20} color={color} />;
             case "account":
-              iconName = "user";
-              return <FontAwesome6 name={iconName} size={28} color={color} />;
+              iconName = "magnifying-glass";
+              return <FontAwesome6 name={iconName} size={21} color={color} />;
             default:
               return null;
           }
@@ -40,12 +40,12 @@ export default function TabLayout() {
         options={{ title: "Employees", headerShown: false }}
       />
       <Tabs.Screen
-        name="add-employee"
-        options={{ title: "Add Employee", headerShown: false }}
+        name="search"
+        options={{ title: "Search", headerShown: false }}
       />
       <Tabs.Screen
-        name="account"
-        options={{ title: "Account", headerShown: false }}
+        name="add-employee"
+        options={{ title: "Add Employee", headerShown: false }}
       />
     </Tabs>
   );

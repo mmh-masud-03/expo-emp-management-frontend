@@ -6,20 +6,27 @@ import {
   TouchableOpacity,
   Modal,
   Button,
-  Alert,
 } from "react-native";
 import { useRouter } from "expo-router";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
+import EmployeeDetailsModal from "./EmployeeDeatilsModal"; // Import the modal component
 
 const EmployeeTable = ({ employees, onDelete }) => {
   const router = useRouter();
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedEmployeeId, setSelectedEmployeeId] = useState(null);
+  const [detailsModalVisible, setDetailsModalVisible] = useState(false);
+  const [selectedEmployee, setSelectedEmployee] = useState(null);
 
   const openDeleteModal = (id) => {
     setSelectedEmployeeId(id);
     setModalVisible(true);
+  };
+
+  const openDetailsModal = (employee) => {
+    setSelectedEmployee(employee);
+    setDetailsModalVisible(true);
   };
 
   const handleDelete = () => {
@@ -37,6 +44,12 @@ const EmployeeTable = ({ employees, onDelete }) => {
         <Text className="text-gray-600">{item.designation}</Text>
       </View>
       <View className="flex-row gap-2">
+        <TouchableOpacity
+          onPress={() => openDetailsModal(item)}
+          className="mr-2"
+        >
+          <AntDesign name="eyeo" size={24} color="black" />
+        </TouchableOpacity>
         <TouchableOpacity
           onPress={() => router.replace(`/edit/${item._id}`)}
           className="mr-2"
@@ -75,6 +88,11 @@ const EmployeeTable = ({ employees, onDelete }) => {
           </View>
         </View>
       </Modal>
+      <EmployeeDetailsModal
+        visible={detailsModalVisible}
+        onClose={() => setDetailsModalVisible(false)}
+        employee={selectedEmployee}
+      />
     </View>
   );
 };

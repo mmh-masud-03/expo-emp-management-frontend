@@ -113,3 +113,7 @@ export const deleteEmployee = async (id) => {
     method: "DELETE",
   });
 };
+
+export const searchEmployee = async (searchTerm) => {
+  return apiFetch(`/?search=${searchTerm}`);
+};
