@@ -51,7 +51,7 @@ const Update = () => {
 
   return (
     <View className="flex-1">
-      <View className="flex-row items-center justify-start bg-blue-600 p-4 mt-8">
+      <View className="flex-row items-center justify-start bg-blue-950 p-4 mt-8">
         <TouchableOpacity
           onPress={() => router.replace("/employees")}
           className="mr-2"

@@ -74,7 +74,7 @@ const Search = () => {
   );
 
   return (
-    <View className="flex-1 bg-gray-100" style={{ paddingTop: insets.top }}>
+    <View className="flex-1 bg-gray-100">
       <Header title="Search Employees" />
       <View className="px-4 py-2">
         <View className="flex flex-row items-center bg-white p-2 rounded-lg shadow">
@@ -91,7 +91,7 @@ const Search = () => {
               setSearchTerm(text);
               handleSearch(text);
             }}
-            className="flex-1 ml-2 text-base"
+            className="flex-1 ml-2 text-base h-10"
             autoCapitalize="none"
           />
           {searchTerm.length > 0 && (

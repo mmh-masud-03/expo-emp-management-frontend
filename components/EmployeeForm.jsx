@@ -156,7 +156,7 @@ const EmployeeForm = ({ onSubmit, initialValues = {} }) => {
 
           <TouchableOpacity
             onPress={handleSubmit}
-            className="bg-blue-600 py-3 rounded-md"
+            className="bg-blue-950 py-3 rounded-md"
           >
             <Text className="text-white text-center font-semibold">
               {initialValues.employeeId ? "Update Employee" : "Add Employee"}

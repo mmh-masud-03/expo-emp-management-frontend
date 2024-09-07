@@ -7,7 +7,7 @@ const Header = ({ title, showBackButton = false, showAddButton = false }) => {
   const router = useRouter();
 
   return (
-    <View className="flex-row items-center justify-between bg-blue-600 p-4 mt-8">
+    <View className="flex-row items-center justify-between bg-blue-950 p-4 mt-8">
       <View className="flex-row items-center">
         {showBackButton && (
           <TouchableOpacity onPress={() => router.back()} className="mr-2">

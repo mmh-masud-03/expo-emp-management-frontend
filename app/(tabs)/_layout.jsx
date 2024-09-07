@@ -20,15 +20,22 @@ export default function TabLayout() {
             case "add-employee":
               iconName = "user-plus";
               return <FontAwesome6 name={iconName} size={20} color={color} />;
-            case "account":
+            case "search":
               iconName = "magnifying-glass";
               return <FontAwesome6 name={iconName} size={21} color={color} />;
             default:
               return null;
           }
         },
-        tabBarActiveTintColor: "blue",
+        tabBarActiveTintColor: "darkblue",
         tabBarInactiveTintColor: "gray",
+        tabBarStyle: {
+          backgroundColor: "white",
+          borderTopColor: "lightgray",
+          borderTopWidth: 1,
+          paddingTop: 5,
+          height: 50,
+        },
       })}
     >
       <Tabs.Screen
