@@ -8,24 +8,25 @@ import {
 } from "react-native";
 import { useRouter, useLocalSearchParams } from "expo-router";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import EmployeeForm from "../../components/EmployeeForm"; // Adjust the path as needed
+import EmployeeForm from "../../components/EmployeeForm"; 
 import { fetchEmployeeById, updateEmployee } from "../../services/api";
 
 const Update = () => {
   const router = useRouter();
-  const { id } = useLocalSearchParams(); // Get the employee ID from the route
+  const { id } = useLocalSearchParams();
   const [employee, setEmployee] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchEmployee = async () => {
       try {
-        const data = await fetchEmployeeById(id); // Fetch the employee data
+        const data = await fetchEmployeeById(id);
         setEmployee(data);
       } catch (error) {
+        console.error("Error fetching employee:", error);
         Alert.alert("Error", "Failed to load employee data");
       } finally {
-        setLoading(false);
+        setIsLoading(false);
       }
     };
 
@@ -35,17 +36,30 @@ const Update = () => {
   }, [id]);
 
   const handleUpdate = async (updatedEmployee) => {
+    setIsLoading(true);
     try {
       const response = await updateEmployee(id, updatedEmployee);
+      const result = await response.json();
 
       if (!response.ok) {
-        throw new Error("Failed to update employee");
+        throw new Error(result.message || "Failed to update employee");
       }
 
-      Alert.alert("Success", "Employee updated successfully");
-      router.replace("/employees"); // Navigate back to the employees list
+      Alert.alert(
+        "Success",
+        "Employee updated successfully",
+        [
+          {
+            text: "OK",
+            onPress: () => router.replace("/employees")
+          }
+        ]
+      );
     } catch (error) {
+      console.error("Error updating employee:", error);
       Alert.alert("Error", error.message);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -61,14 +75,21 @@ const Update = () => {
         <Text className="text-white text-xl font-bold">Update Employee</Text>
       </View>
 
-      {loading ? (
-        <ActivityIndicator size="large" color="#0000ff" />
-      ) : employee ? (
+      {employee && !isLoading ? (
         <EmployeeForm initialValues={employee} onSubmit={handleUpdate} />
       ) : (
         <Text className="p-4 text-center text-red-500">
-          Employee not found.
+          {isLoading ? "" : "Employee not found."}
         </Text>
+      )}
+
+      {isLoading && (
+        <View className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+          <ActivityIndicator size="large" color="#ffffff" />
+          <Text className="text-white mt-2">
+            {employee ? "Updating..." : "Loading..."}
+          </Text>
+        </View>
       )}
     </View>
   );
