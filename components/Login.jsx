@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Alert } from 'react-native';
 import { useRouter } from 'expo-router';
 
-const API_URL = 'http://localhost:5000'; // Replace with your actual API URL
+const API_URL = 'http://localhost:5000';
 
 export default function Login() {
   const [email, setEmail] = useState('');
